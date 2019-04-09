@@ -19,7 +19,7 @@ public class ImmutableQueue<T extends ImmutableElement> implements Queue<T> {
 
     // Deep copy the original list to a new list, add the new element in the end of the new list and return the new list, instead of modify the original list.
     @Override
-    public synchronized Queue<T>  enQueue(T t) {
+    public Queue<T> enQueue(T t) {
         if (list.size() == capacity) {
             throw new QueueFullException(String.format("ImmutableQueue capacity exceed, can NOT add more element, capacity is %d", capacity));
         }
@@ -35,7 +35,7 @@ public class ImmutableQueue<T extends ImmutableElement> implements Queue<T> {
 
     // Removes the element at the beginning of the immutable queue, and returns the new queue.
     @Override
-    public synchronized Queue<T> deQueue() {
+    public Queue<T> deQueue() {
         if (list.size() == 0) {
             return new ImmutableQueue(0l);
         }
@@ -51,7 +51,7 @@ public class ImmutableQueue<T extends ImmutableElement> implements Queue<T> {
     }
 
     @Override
-    public synchronized T head() {
+    public T head() {
         if (list.size() == 0) {
             return null;
         }
@@ -59,7 +59,7 @@ public class ImmutableQueue<T extends ImmutableElement> implements Queue<T> {
     }
 
     @Override
-    public synchronized boolean isEmpty() {
+    public boolean isEmpty() {
         return list.size() == 0;
     }
 }
