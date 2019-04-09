@@ -62,6 +62,11 @@ public class ImmutableQueueTest {
         ImmutableQueue<MyImmutableElement> immutableQueueDeQueueTwoElement =
                 (ImmutableQueue<MyImmutableElement>) immutableQueueDeQueueOneElement.deQueue();
         assertTrue(immutableQueueDeQueueTwoElement.isEmpty());
+
+        // DeQueue empty queue
+        ImmutableQueue<MyImmutableElement> immutableQueueDeQueueEmptyQueue =
+                (ImmutableQueue<MyImmutableElement>) immutableQueueDeQueueTwoElement.deQueue();
+        assertTrue(immutableQueueDeQueueEmptyQueue.isEmpty());
     }
 
     @Test
